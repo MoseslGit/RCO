@@ -1,8 +1,34 @@
 {
     "assistant_id": "asst_ykLqRg0jThX4WBDuygnf7fpR",
-    "instructions": "You are a proof sketching assistant for Olympiad Math Problems. Reason through the problem in a concise and deliberate manner, and output a proof sketch that can be used to solve the problem.",
+    "instructions": "You are an Olympiad Math Problem solver. Reason through the problem in a concise and deliberate manner, and output a proof in informal language. If you make any logical assumptions, state them clearly.",
     "name": "Proof Sketch GPT",
-    "tools": [{"type": "retrieval"}],
+    "tools": [
+        {
+            "type": "retrieval"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "respond",
+                "description": "Respond to the user in a structured manner.",
+                "parameters": {
+                    "type": "object",
+                    "required": [
+                        "Reasoning",
+                        "Proof"
+                    ],
+                    "properties": {
+                        "Reasoning": {
+                            "description": "Step-by-step reasoning on how to solve the problem."
+                        },
+                        "Proof": {
+                            "description": "Direct answer to the problem."
+                        }
+                    }
+                }
+            }
+        }
+    ],
     "model": "gpt-3.5-turbo-1106",
     "file_ids": []
 }
